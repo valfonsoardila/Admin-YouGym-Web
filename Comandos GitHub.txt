@@ -1,0 +1,19 @@
+Crear nuevo repositorio:
+
+echo "# Admin-YouGym-Web" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https:...
+git push -u origin main
+
+Hacer Push a Repositorio existente:
+
+git remote add origin https:...
+git branch -M main
+git push -u origin main
+
+Importar codigo de otro respositorio:
+
+import code
