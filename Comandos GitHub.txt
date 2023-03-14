@@ -10,7 +10,8 @@ git push -u origin main
 
 Hacer Push a Repositorio existente:
 
-git remote add origin https:...
+
+git commit -m "name commit"
 git branch -M main
 git push -u origin main
 
