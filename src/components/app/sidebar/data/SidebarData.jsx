@@ -1,91 +1,97 @@
-import React from 'react';
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
-import * as IoIcons from 'react-icons/io';
-import * as RiIcons from 'react-icons/ri';
+import {
+  AiOutlineApartment,
+  AiOutlineSetting,
+} from "react-icons/ai";
+import { MdLogout } from "react-icons/md";
+import { logoSVG } from "./../../../../resources/Resources";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown, faAngleUp, faBottleWater, faCalendar, faCashRegister, faDashboard, faDumbbell, faTasks, faUser, faUsers, faUserTie } from "@fortawesome/free-solid-svg-icons";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
-export const SidebarData = [
+export const linksArray = [
   {
-    title: 'Overview',
-    path: '/overview',
-    icon: <AiIcons.AiFillHome />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
-      {
-        title: 'Users',
-        path: '/overview/users',
-        icon: <IoIcons.IoIosPaper />
-      },
-      {
-        title: 'Revenue',
-        path: '/overview/revenue',
-        icon: <IoIcons.IoIosPaper />
-      }
-    ]
+      label: "Menu Dash",
+      icon: <FontAwesomeIcon icon={faDashboard} />,
+      to: "/menudash",
+      iconClosed: <FontAwesomeIcon icon={faAngleDown} />,
+      iconOpened:<FontAwesomeIcon icon={faAngleUp} />,
+      notification: 0,
+      subNav: [
+        {
+          title: 'DashYouGym',
+          path: '/menudash/das-yougym',
+          icon: <img src={logoSVG} alt="logo" />,
+        },
+        {
+          title: 'DashCatchTweets',
+          path: '/menudash/dash-catch-tweets',
+          icon: <FontAwesomeIcon icon={faTwitter} />
+        }
+      ]
   },
   {
-    title: 'Reports',
-    path: '/reports',
-    icon: <IoIcons.IoIosPaper />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
+      label: "Caja Registradora",
+      icon: <FontAwesomeIcon icon={faCashRegister} />,
+      to: "/caja-registradora",
+      notification: 3,
+  },
+  {
+      label: "Usuarios",
+      icon: <FontAwesomeIcon icon={faUsers} />,
+      to: "/usuarios",
+      iconClosed: <FontAwesomeIcon icon={faAngleDown} />,
+      iconOpened:<FontAwesomeIcon icon={faAngleUp} />,
+      notification: 0,
+      subNav: [
+        {
+          title: 'Entrenador',
+          path: '/usuarios/entrenador',
+          icon: <FontAwesomeIcon icon={faUser} />,
+        },
+        {
+          title: 'Cliente',
+          path: '/usuarios/cliente',
+          icon: <FontAwesomeIcon icon={faUserTie} />
+        }
+      ]
+  },
+  {
+      label: "Body Center",
+      icon: <FontAwesomeIcon icon={faDumbbell} />,
+      to: "/body-center",
+      iconClosed: <FontAwesomeIcon icon={faAngleDown} />,
+      iconOpened:<FontAwesomeIcon icon={faAngleUp} />,
+      notification: 1,
+      subNav: [
+        {
+          title: 'Progreso',
+          path: '/body-center/progreso',
+          icon: <FontAwesomeIcon icon={faCalendar} />,
+        },
+        {
+          title: 'Tareas',
+          path: '/body-center/tareas',
+          icon: <FontAwesomeIcon icon={faTasks} />
+        }
+      ]
+  },
+  {
+    label: "Servicio",
+    icon: <FontAwesomeIcon icon={faBottleWater} />,
+    to: "/servicio",
+    iconClosed: <FontAwesomeIcon icon={faAngleDown} />,
+    iconOpened:<FontAwesomeIcon icon={faAngleUp} />,
+    notification: 1,
+},
+];
 
-    subNav: [
-      {
-        title: 'Reports',
-        path: '/reports/reports1',
-        icon: <IoIcons.IoIosPaper />,
-        cName: 'sub-nav'
-      },
-      {
-        title: 'Reports 2',
-        path: '/reports/reports2',
-        icon: <IoIcons.IoIosPaper />,
-        cName: 'sub-nav'
-      },
-      {
-        title: 'Reports 3',
-        path: '/reports/reports3',
-        icon: <IoIcons.IoIosPaper />
-      }
-    ]
+export const secondaryLinksArray = [
+  {
+      label: "Settings",
+      icon: <AiOutlineSetting />,
   },
   {
-    title: 'Products',
-    path: '/products',
-    icon: <FaIcons.FaCartPlus />
+      label: "Logout",
+      icon: <MdLogout />,
   },
-  {
-    title: 'Team',
-    path: '/team',
-    icon: <IoIcons.IoMdPeople />
-  },
-  {
-    title: 'Messages',
-    path: '/messages',
-    icon: <FaIcons.FaEnvelopeOpenText />,
-
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-
-    subNav: [
-      {
-        title: 'Message 1',
-        path: '/messages/message1',
-        icon: <IoIcons.IoIosPaper />
-      },
-      {
-        title: 'Message 2',
-        path: '/messages/message2',
-        icon: <IoIcons.IoIosPaper />
-      }
-    ]
-  },
-  {
-    title: 'Support',
-    path: '/support',
-    icon: <IoIcons.IoMdHelpCircle />
-  }
 ];

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   SHeader,
   SHeaderInfo,
@@ -7,6 +7,7 @@ import {
   BottonBar,
   RoutesPages,
   TextHeader,
+  Title,
   PictureSesion,
   CogApp,
 } from "./HeaderStyles";
@@ -16,8 +17,12 @@ import {
   faServer,
   faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
+import { ThemeContext } from "./../../../App";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
+  const { setTheme, theme } = useContext(ThemeContext);
+
   return (
     <SHeader>
       <SHeaderInfo>
@@ -29,6 +34,10 @@ const Header = () => {
         <TextHeader>
           <h5>Inicio</h5>
         </TextHeader>
+        <Title>
+          <h5>You</h5>
+          <h4>Gym</h4>
+        </Title>
       </SHeaderInfo>
       <SHeaderSesion>
         <PictureSesion>

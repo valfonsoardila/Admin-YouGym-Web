@@ -4,13 +4,13 @@ import styled from "styled-components";
 import { btnReset, v } from "../../../styles/constant/Variables";
 
 export const SSidebar = styled.div`
+  border-right: 5px solid ${({ theme }) => theme.border};
   width: ${({ isOpen }) => (!isOpen ? `auto` : v.sidebarWidth)};
   background: ${({ theme }) => theme.bg};
   height: 100vh;
   padding: ${v.smSpacing};
   position: relative;
-  transition: 350ms;
-  z-index: 10;
+  transition: width 2s, ease 0s;
 `;
 export const BottonBar = styled.div`
   ${btnReset};
@@ -47,17 +47,22 @@ export const SSidebarButton = styled.button`
 `;
 
 export const SLogo = styled.div`
-  width: 52px;
-
+  width:auto;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  transition: 0.2s ease right;
   img {
-    max-width: 100%;
+    width: ${({ isOpen }) => (!isOpen ? `45px` : `100px`)};
     height: auto;
   }
   cursor: pointer;
-
   margin-bottom: ${v.lgSpacing};
 `;
-
+export const Title=styled.div`
+display:${({ isOpen }) => (!isOpen ? `none` : `block`)};
+`;
 export const SSearch = styled.div`
   background: ${({ theme }) => theme.bgAlpha};
   border: 0.4px solid ${({ theme }) => theme.bg3};
@@ -94,13 +99,16 @@ export const SDivider = styled.div`
 `;
 
 export const SLinkContainer = styled.div`
-  background: ${({ theme, isActive }) =>
-    !isActive ? `transparent` : theme.bg3};
+  background-color: ${({ theme, isActive }) =>
+    !isActive ? `transparent` : theme.Selector};
   border-radius: ${v.borderRadius};
-  margin: 8px 0;
-
+  margin: 2px 0;
+  svg{
+    color:${({ theme, isActive }) =>
+    !isActive ? theme.iconMenu : theme.svgSidebarMenuActive};
+  }
   :hover {
-    box-shadow: inset 0 0 0 1px ${({ theme }) => theme.bg3};
+    box-shadow: inset 0 0 0 1px ${({ theme }) => theme.hoverSelection};
   }
 `;
 
@@ -114,9 +122,11 @@ export const SLink = styled(Link)`
 `;
 
 export const SLinkIcon = styled.div`
-  padding: ${v.smSpacing} ${v.mdSpacing};
+  padding: ${v.smSpacing} ${v.ndxSpacing};
   display: flex;
-
+  img{
+    height:30px;
+  }
   svg {
     font-size: 20px;
   }
@@ -126,6 +136,9 @@ export const SLinkLabel = styled.span`
   display: block;
   flex: 1;
   margin-left: ${v.smSpacing};
+  color:${({ theme, isActive }) =>
+    !isActive ? theme.textMenu : theme.svgSidebarMenuActive};
+  font-size:14px;
 `;
 
 export const SLinkNotification = styled.div`
@@ -154,20 +167,28 @@ export const SThemeToggler = styled.button`
   width: 36px;
   height: 20px;
   border-radius: 10px;
-  background: ${({ theme, isActive }) =>
-    !isActive ? theme.bg3 : theme.primary};
-
+  background: ${({ theme }) => theme.bgThemeToggler};
   position: relative;
 `;
-
+export const IconModeTheme=styled.div`
+visibility:${({ isOpen }) => (!isOpen ? `hidden` : `visible`)};
+display:${({ isOpen }) => (!isOpen ? `none` : `block`)};
+img{
+  height: 16px;
+}
+`;
 export const SToggleThumb = styled.div`
   height: 18px;
   width: 18px;
+  transform: ${({ isOpen }) => (!isOpen ? `rotate(0deg)` : `rotate(180deg)`)};
   position: absolute;
   top: 1px;
   bottom: 1px;
   transition: 0.2s ease right;
   right: calc(100% - 18px - 1px);
   border-radius: 50%;
-  background: ${({ theme }) => theme.bg};
+  background: ${({ theme }) => theme.bgToggleThumb};
+  justify-content:center;
+  align-items:center;
+  display:flex;
 `;

@@ -10,26 +10,26 @@ import {
   SThemeLabel,
   SThemeToggler,
   SToggleThumb,
+  IconModeTheme,
 } from "./SidebarStyles";
-import { SidebarData } from './data/SidebarData';
-import SubMenu from './dropdown/Dropdown';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-
-import { logoPNG } from "./../../../resources/Resources";
-
+import { linksArray } from "./data/SidebarData";
+import SubMenu from "./dropdown/Dropdown";
 import {
-  AiOutlineSearch,
-} from "react-icons/ai";
+  faAngleLeft,
+  faBars,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
+import { logoPNG } from "./../../../resources/Resources";
+import { modeDark, modeLight } from "./../../../resources/Resources";
 import { ThemeContext } from "./../../../App";
 import { useLocation } from "react-router-dom";
 
 const Sidebar = () => {
   const searchRef = useRef(null);
   const { setTheme, theme } = useContext(ThemeContext);
+  const [changeTheme, setChangeTheme] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  
-  const { pathname } = useLocation();
 
   const searchClickHandler = () => {
     if (!sidebarOpen) {
@@ -43,11 +43,14 @@ const Sidebar = () => {
   return (
     <SSidebar isOpen={sidebarOpen}>
       <>
-        <BottonBar isOpen={sidebarOpen} onClick={() => setSidebarOpen((p) => !p)}>
+        <BottonBar
+          isOpen={sidebarOpen}
+          onClick={() => setSidebarOpen((p) => !p)}
+        >
           <FontAwesomeIcon icon={faBars} />
         </BottonBar>
       </>
-      <SLogo>
+      <SLogo isOpen={sidebarOpen}>
         <img src={logoPNG} alt="logo" />
       </SLogo>
       <SSearch
@@ -55,7 +58,7 @@ const Sidebar = () => {
         style={!sidebarOpen ? { width: `fit-content` } : {}}
       >
         <SSearchIcon>
-          <AiOutlineSearch />
+          <FontAwesomeIcon icon={faSearch} />
         </SSearchIcon>
         <input
           ref={searchRef}
@@ -64,18 +67,30 @@ const Sidebar = () => {
         />
       </SSearch>
       <SDivider />
-      {SidebarData.map((item, index) => {
-              return <SubMenu item={item} key={index} />;
-            })}
+      {linksArray.map((item, index) => {
+        return <SubMenu item={item} key={index} />;
+      })}
       <SDivider />
       <STheme>
         {sidebarOpen && <SThemeLabel>Dark Mode</SThemeLabel>}
+        <IconModeTheme isOpen={sidebarOpen}>
+          <img src={modeLight} alt="logo" />
+        </IconModeTheme>
         <SThemeToggler
           isActive={theme === "dark"}
           onClick={() => setTheme((p) => (p === "light" ? "dark" : "light"))}
         >
-          <SToggleThumb style={theme === "dark" ? { right: "1px" } : {}} />
+          <SToggleThumb
+            style={theme === "dark" ? { right: "1px" } : {}}
+            isOpen={changeTheme}
+            onClick={() => setChangeTheme((p) => !p)}
+          >
+            <FontAwesomeIcon icon={faAngleLeft} />
+          </SToggleThumb>
         </SThemeToggler>
+        <IconModeTheme isOpen={sidebarOpen}>
+          <img src={modeDark} alt="logo" />
+        </IconModeTheme>
       </STheme>
     </SSidebar>
   );

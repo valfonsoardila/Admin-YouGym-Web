@@ -11,6 +11,15 @@ width:100vw;
 background-color:black;
 align-items:center;
 `;
+export const Title=styled.div`
+display:flex;
+flex-direction:row;
+color:${({ theme }) => theme.textHeader};
+h5{
+    background-color:${({ theme }) => theme.bgTitle};
+    color:${({ theme }) => theme.Title};
+}
+`;
 export const SHeaderInfo = styled.div`
 display:flex;
 flex-direction:row;
@@ -43,7 +52,7 @@ width:1.5rem;
 align-items:center;
 justify-content:center;
 svg{
-    color:white;
+    color: ${({ theme }) => theme.bgSVG};
 }
 `;
 export const RoutesPages =styled.div`
@@ -56,6 +65,7 @@ svg{
 }
 `;
 export const TextHeader=styled.div`
+width:50%;
 color:${({ theme }) => theme.textHeader};
 align-items:center;
 `;

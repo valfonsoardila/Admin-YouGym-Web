@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { btnReset, v } from "../../../../styles/constant/Variables";
 
 export const SidebarLink = styled(Link)`
   display: flex;
   color: #e1e9fc;
+  background: ${({ theme, isActive }) =>
+    !isActive ? `transparent` : theme.bg3};
+  margin: 8px 0;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
@@ -11,30 +15,30 @@ export const SidebarLink = styled(Link)`
   height: 60px;
   text-decoration: none;
   font-size: 18px;
-
-  &:hover {
-    background: #252831;
+  :hover {
+    border-radius: ${v.borderRadius};
+    box-shadow: inset 0 0 0 1px ${({ theme }) => theme.bg3};
     border-left: 4px solid #632ce4;
-    cursor: pointer;
   }
 `;
 
 export const SidebarLabel = styled.span`
-  margin-left: 16px;
+  margin-left: -6px;
 `;
 
 export const DropdownLink = styled(Link)`
-  background: #414757;
-  height: 60px;
-  padding-left: 3rem;
+  background: ${({ theme }) => theme.bgDrpdown};
+  border-radius: ${v.borderRadius};
+  height: 30px;
+  padding-left: 0.5rem;
   display: flex;
   align-items: center;
   text-decoration: none;
   color: #f5f5f5;
-  font-size: 18px;
-
+  font-size: 14px;
   &:hover {
-    background: #632ce4;
+    border-radius: ${v.borderRadius};
+    background: ${({ theme }) => theme.bgAlpha};
     cursor: pointer;
   }
 `;
