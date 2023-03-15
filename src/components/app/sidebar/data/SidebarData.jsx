@@ -1,11 +1,6 @@
-import {
-  AiOutlineApartment,
-  AiOutlineSetting,
-} from "react-icons/ai";
-import { MdLogout } from "react-icons/md";
 import { logoSVG } from "./../../../../resources/Resources";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown, faAngleUp, faBottleWater, faCalendar, faCashRegister, faDashboard, faDumbbell, faTasks, faUser, faUsers, faUserTie } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faAngleUp, faBottleWater, faCalendar, faCashRegister, faDashboard, faDumbbell, faSignOut, faTasks, faUser, faUsers, faUserTie } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 export const linksArray = [
@@ -80,18 +75,18 @@ export const linksArray = [
     icon: <FontAwesomeIcon icon={faBottleWater} />,
     to: "/servicio",
     iconClosed: <FontAwesomeIcon icon={faAngleDown} />,
-    iconOpened:<FontAwesomeIcon icon={faAngleUp} />,
+    iconOpened: <FontAwesomeIcon icon={faAngleUp} />,
     notification: 1,
 },
 ];
 
 export const secondaryLinksArray = [
   {
-      label: "Settings",
-      icon: <AiOutlineSetting />,
-  },
-  {
-      label: "Logout",
-      icon: <MdLogout />,
+      label: "Salir",
+      icon: <FontAwesomeIcon icon={faSignOut} />,
+      to: "/Salir",
+      iconClosed: <FontAwesomeIcon icon={faAngleDown} />,
+      iconOpened: <FontAwesomeIcon icon={faAngleUp} />,
+      notification: 1,
   },
 ];

@@ -13,7 +13,7 @@ import {
   IconModeTheme,
 } from "./SidebarStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { linksArray } from "./data/SidebarData";
+import { linksArray, secondaryLinksArray } from "./data/SidebarData";
 import SubMenu from "./dropdown/Dropdown";
 import {
   faAngleLeft,
@@ -23,7 +23,6 @@ import {
 import { logoPNG } from "./../../../resources/Resources";
 import { modeDark, modeLight } from "./../../../resources/Resources";
 import { ThemeContext } from "./../../../App";
-import { useLocation } from "react-router-dom";
 
 const Sidebar = () => {
   const searchRef = useRef(null);
@@ -68,7 +67,11 @@ const Sidebar = () => {
       </SSearch>
       <SDivider />
       {linksArray.map((item, index) => {
-        return <SubMenu item={item} key={index} />;
+        return <SubMenu isOpen={sidebarOpen} item={item} key={index} />;
+      })}
+      <SDivider />
+      {secondaryLinksArray.map((item, index) => {
+        return <SubMenu isOpen={sidebarOpen} item={item} key={index} />;
       })}
       <SDivider />
       <STheme>

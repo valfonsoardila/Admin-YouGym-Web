@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { btnReset, v } from "../../../../styles/constant/Variables";
+import { v } from "../../../../styles/constant/Variables";
 
 export const SidebarLink = styled(Link)`
   display: flex;
@@ -24,6 +24,10 @@ export const SidebarLink = styled(Link)`
 
 export const SidebarLabel = styled.span`
   margin-left: -6px;
+`;
+
+export const Deployment = styled.div`
+display:${({ isOpen }) => (!isOpen ? `none` : `block`)};
 `;
 
 export const DropdownLink = styled(Link)`

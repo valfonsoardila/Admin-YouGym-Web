@@ -75,8 +75,9 @@ export const SSearch = styled.div`
     width: 100%;
     outline: none;
     border: none;
-    color: inherit;
+    color: ${({ theme }) => theme.textMenu};
     background: transparent;
+    ::placeholder{color: ${({ theme }) => theme.hoverSelection}};
   }
   display: flex;
 `;
@@ -107,6 +108,10 @@ export const SLinkContainer = styled.div`
     color:${({ theme, isActive }) =>
     !isActive ? theme.iconMenu : theme.svgSidebarMenuActive};
   }
+  span{
+    color:${({ theme, isActive }) =>
+    !isActive ? theme.textMenu : theme.svgSidebarMenuActive};
+  }
   :hover {
     box-shadow: inset 0 0 0 1px ${({ theme }) => theme.hoverSelection};
   }
@@ -133,11 +138,9 @@ export const SLinkIcon = styled.div`
 `;
 
 export const SLinkLabel = styled.span`
-  display: block;
+  display: ${({ isOpen }) => (!isOpen ? `none` : `block`)};
   flex: 1;
   margin-left: ${v.smSpacing};
-  color:${({ theme, isActive }) =>
-    !isActive ? theme.textMenu : theme.svgSidebarMenuActive};
   font-size:14px;
 `;
 

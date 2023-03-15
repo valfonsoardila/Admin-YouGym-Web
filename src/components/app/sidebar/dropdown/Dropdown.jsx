@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SidebarLink, SidebarLabel, DropdownLink } from "./DropdownStyles";
+import { SidebarLabel, DropdownLink, Deployment } from "./DropdownStyles";
 import {
   SLinkContainer,
   SLink,
@@ -8,7 +8,7 @@ import {
 } from "./../SidebarStyles";
 import { useLocation } from "react-router-dom";
 
-const SubMenu = ({ item }) => {
+const SubMenu = ({ item, isOpen }) => {
   const [subnav, setSubnav] = useState(false);
   const showSubnav = () => setSubnav(!subnav);
   const { pathname } = useLocation();
@@ -16,19 +16,19 @@ const SubMenu = ({ item }) => {
     <>
       <SLinkContainer
         key={item.label}
-        onClick={item.subNav && showSubnav}
         isActive={pathname === item.to}
+        isOpen={isOpen}
       >
         <SLink to={item.to}>
           <SLinkIcon>{item.icon}</SLinkIcon>
-          <SLinkLabel>{item.label}</SLinkLabel>
-          <div>
+          <SLinkLabel onClick={item.subNav && showSubnav} isActive={pathname === item.to} isOpen={isOpen} >{item.label}</SLinkLabel>
+          <Deployment isOpen={isOpen} onClick={item.subNav && showSubnav}>
             {item.subNav && subnav
               ? item.iconOpened
               : item.subNav
               ? item.iconClosed
               : null}
-          </div>
+          </Deployment>
         </SLink>
       </SLinkContainer>
       {subnav &&

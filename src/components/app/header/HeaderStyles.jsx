@@ -13,7 +13,9 @@ align-items:center;
 `;
 export const Title=styled.div`
 display:flex;
+width:40%;
 flex-direction:row;
+justify-content:center;
 color:${({ theme }) => theme.textHeader};
 h5{
     background-color:${({ theme }) => theme.bgTitle};
@@ -24,7 +26,7 @@ export const SHeaderInfo = styled.div`
 display:flex;
 flex-direction:row;
 height:2.5rem;
-width:70vw;
+width:60vw;
 background-color:black;
 align-items:center;
 `;
@@ -40,9 +42,10 @@ export const SHeaderCog = styled.div`
 display:flex;
 flex-direction:row;
 height:2.5rem;
-width:10vw;
+width:20vw;
 background-color:black;
 align-items:center;
+justify-content:right;
 `;
 export const BottonBar =styled.div`
 display:flex;
@@ -81,8 +84,9 @@ svg{
 export const CogApp =styled.div`
 display:flex;
 padding:0.5rem;
-align-items:center;
+align-items:right;
 justify-content:center;
+margin-right:0.5rem;
 svg{
     color:${({ theme }) => theme.textHeader};
 }
