@@ -1,7 +1,4 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-
-import { btnReset, v } from "../../../styles/constant/Variables";
 
 export const SHeader = styled.div`
 display:flex;
@@ -37,6 +34,11 @@ height:2.5rem;
 width:20vw;
 background-color:black;
 align-items:center;
+:hover{
+    background-color:${({ theme }) => theme.bgAlpha};
+    border-radius:6px;
+    width:20vw;
+}
 `;
 export const SHeaderCog = styled.div`
 display:flex;
@@ -83,12 +85,18 @@ svg{
 `;
 export const CogApp =styled.div`
 display:flex;
+width:32px;
 padding:0.5rem;
 align-items:right;
 justify-content:center;
 margin-right:0.5rem;
 svg{
     color:${({ theme }) => theme.textHeader};
+}
+:hover{
+    background-color:${({ theme }) => theme.bgAlpha};
+    border-radius:6px;
+    width:32px;
 }
 `;
 

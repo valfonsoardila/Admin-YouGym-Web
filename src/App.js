@@ -4,7 +4,7 @@ import { ThemeProvider } from "styled-components";
 import LayoutApp from "./components/layout/LayoutApp";
 import Routes from "./Routes";
 import { GlobalStyle } from "./styles/global/GloblStyles";
-import { fondoLogin, darkTheme, lightTheme } from "./styles/themes/Theme";
+import { darkTheme, lightTheme } from "./styles/themes/Theme";
 
 export const ThemeContext = React.createContext(null);
 

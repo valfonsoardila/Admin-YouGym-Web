@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
   SHeader,
   SHeaderInfo,
@@ -17,12 +17,8 @@ import {
   faServer,
   faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import { ThemeContext } from "./../../../App";
-import { useLocation } from "react-router-dom";
 
 const Header = () => {
-  const { setTheme, theme } = useContext(ThemeContext);
-
   return (
     <SHeader>
       <SHeaderInfo>

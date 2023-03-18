@@ -1,9 +1,11 @@
 import React from 'react'
-import {SMain} from "./ContainerStyles";
+import {SLayout, SMain} from "./ContainerStyles";
 
 const Container = ({children}) => {
   return (
+    <SLayout>
     <SMain>{children}</SMain>
+    </SLayout>
   );
 };
 

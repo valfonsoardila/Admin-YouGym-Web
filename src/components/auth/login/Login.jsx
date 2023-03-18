@@ -7,10 +7,7 @@ import { logoPNG } from "./../../../resources/Resources";
 import {
   MainContainer,
   WelcomeText,
-  ContainerSeePasword,
-  ButtonSeePasword,
   InputContainer,
-  IconSesion,
   ButtonContainer,
   LoginWith,
   HorizontalRule,
@@ -24,7 +21,6 @@ import {
   faInstagram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 const Login = ({ children }) => {
   const FacebookBackground =

@@ -28,6 +28,11 @@ export const BottonBar = styled.div`
   svg {
     color: white;
   }
+  :hover{
+    background-color:${({ theme }) => theme.bgAlpha};
+    border-radius:6px;
+    width:1.5rem;
+}
 `;
 export const SSidebarButton = styled.button`
   ${btnReset};
@@ -138,6 +143,7 @@ export const SLinkIcon = styled.div`
 `;
 
 export const SLinkLabel = styled.span`
+  margin:0.3rem;
   display: ${({ isOpen }) => (!isOpen ? `none` : `block`)};
   flex: 1;
   margin-left: ${v.smSpacing};

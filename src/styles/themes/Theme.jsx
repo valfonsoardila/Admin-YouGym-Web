@@ -29,6 +29,8 @@ export const lightTheme = {
     //Container
     bg2: "rgb(225,225,225,.9)",
     text: "rgb(15,15,15)",
+    //DashBoard CatchTweets
+    bgDashCatchTweets: "rgb(255,255,255)",
 };
 export const darkTheme = {
     background: "rgb(40,40,40)",
@@ -61,4 +63,6 @@ export const darkTheme = {
     //Container
     bg2: "rgb(40,40,40)",
     text: "rgb(210,210,210)",
+    //DashBoard CatchTweets
+    bgDashCatchTweets: "rgb(25,25,25)",
 };

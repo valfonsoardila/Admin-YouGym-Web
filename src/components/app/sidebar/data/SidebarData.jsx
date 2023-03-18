@@ -14,7 +14,7 @@ export const linksArray = [
       subNav: [
         {
           title: 'DashYouGym',
-          path: '/menudash/das-yougym',
+          path: '/menudash/dash-yougym',
           icon: <img src={logoSVG} alt="logo" />,
         },
         {
