@@ -10,9 +10,7 @@ git push -u origin main
 
 Hacer Push a Repositorio existente:
 
-
-git commit -m "name commit"
-git branch -M main
+git commit -m "Nombre del commit"
 git push -u origin main
 
 Importar codigo de otro respositorio:
